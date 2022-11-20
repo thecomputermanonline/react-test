@@ -39,4 +39,17 @@ export default createGlobalStyle`
     font-size: 100%; /* 1 */
     margin: 0; /* 2 */
   }
+  table {
+    border: 2px solid #E3ECF6;
+    width: 800px;
+    height: 200px;
+  }
+    
+  th {
+    border-bottom: 1px solid black;
+  }
+    
+  td {
+    text-align: center;
+  }
 `;

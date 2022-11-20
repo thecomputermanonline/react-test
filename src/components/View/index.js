@@ -1,6 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router";
 import { Box, Button, Flex, Header } from "../styled";
+import ListView from "./List";
 
 const View = () => {
   const history = useHistory();
@@ -14,6 +15,7 @@ const View = () => {
         justifyContent="center"
         marginTop="lg"
       >
+        <ListView />
         <Box>
           <Button data-cy="backButton" onClick={() => history.goBack()}>
             Back

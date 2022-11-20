@@ -8,6 +8,9 @@ describe("Examine the creation of employees", () => {
     cy.get("[data-cy=firstNameErrorMessage]").should("contain", "Required");
     cy.get("[data-cy=surnameErrorMessage]").should("contain", "Required");
     cy.get("[data-cy=emailErrorMessage]").should("contain", "Required");
+    cy.get("[data-cy=birthDateErrorMessage]").should("contain", "Required");
+    cy.get("[data-cy=statusErrorMessage]").should("contain", "Required");
+    cy.get("[data-cy=jobTitleErrorMessage]").should("contain", "Required");
   });
 
   it("validates too long submitted values properly", () => {

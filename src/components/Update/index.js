@@ -3,19 +3,19 @@ import { useHistory } from "react-router";
 import { Formik } from "formik";
 import { useDispatch } from "react-redux";
 import { Flex, Header } from "../styled";
-import FormField from "./FormField";
-import FormDField from "./FormDField";
-import FormButtons from "./FormButtons";
-import formValidationSchema from "./formValidationSchema";
-import { saveNewEmployee } from "../../redux/employees/actionCreators";
+import FormField from "../Create/FormField";
+import FormDField from "../Create/FormDField";
+import FormButtons from "../Create/FormButtons";
+import formValidationSchema from "../Create/formValidationSchema";
+import { saveEmployee } from "../../redux/employees/actionUpdater";
 
-const Create = () => {
-  console.log(JSON.parse(localStorage.getItem("data")));
+const Update = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const submitForm = useCallback(
     employee => {
-      dispatch(saveNewEmployee(employee));
+      console.log(employee);
+      dispatch(saveEmployee(employee));
       history.push("/view");
     },
     [dispatch]
@@ -23,17 +23,18 @@ const Create = () => {
 
   return (
     <>
-      <Header>Create new employee</Header>
+      <Header>Update employee</Header>
       <Formik
         validationSchema={formValidationSchema}
         onSubmit={submitForm}
         initialValues={{
-          firstName: "",
-          surname: "",
-          email: "",
-          birthDate: "",
-          status: "",
-          jobTitle: "",
+          id: localStorage.getItem("id"),
+          firstName: localStorage.getItem("firstName"),
+          surname: localStorage.getItem("surname"),
+          email: localStorage.getItem("email"),
+          birthDate: localStorage.getItem("birthDate"),
+          status: localStorage.getItem("status"),
+          jobTitle: localStorage.getItem("jobTitle"),
         }}
       >
         <Flex alignItems="center" justifyContent="center" height="100%">
@@ -52,4 +53,4 @@ const Create = () => {
   );
 };
 
-export default Create;
+export default Update;
